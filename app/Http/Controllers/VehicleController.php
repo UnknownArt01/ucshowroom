@@ -14,7 +14,7 @@ class VehicleController extends Controller
      */
     public function index()
     {
-        //masuk ke halaman index
+        //masuk ke halaman INDEX
         $vehicles = vehicle::all();
         return view('vehicle.vehicle_index', compact(('vehicles')));
     }
@@ -119,7 +119,6 @@ class VehicleController extends Controller
             'vehicle_cargo_space' => $request->vehicle_cargo_space,
             'vehicle_baggage_space' => $request->vehicle_baggage_space,
             'vehicle_fuel_capacity' => $request->vehicle_fuel_capacity,
-            'vehicle_image' => $request->imageName,
             ]);
         } else {
             vehicle::findOrFail($id)->update([

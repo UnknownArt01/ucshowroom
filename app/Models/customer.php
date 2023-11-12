@@ -12,11 +12,13 @@ class customer extends Model
         'id'
     ];
 
-
-    //menandakan customer dapat memiliki banyak order
-    public function order()
+    public function Customer()
     {
-        return $this->hasMany(Order::class);
+        return $this->belongsTo(Customer::class);
     }
 
+    public function Vehicle()
+    {
+        return $this->belongsTo(Vehicle::class);
+    }
 }

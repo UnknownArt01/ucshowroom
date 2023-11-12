@@ -3,7 +3,7 @@
     <div class="container">
         <main class="container">
             {{-- tombol kembali kembali --}}
-            <a href="{{route('customer.index')}}">Kembali</a>
+            <a href="{{ url()->previous() }}" class="btn btn-primary">Kembali</a>
             <h1> Buat Data Customer Baru </h1>
 
             {{-- untuk menampilkan semua data yang bisa di edit berdasarkan id --}}
@@ -19,12 +19,12 @@
                         <input class="form-control" type="text" placeholder="Alamat" aria-label="address" name="address" value="{{$customer->address}}" required autofocus>
                     </div>
                     <div class="mb-3">
-                        <label for="phoneNumber" class="form-label">Nomor Telepon</label>
-                        <input class="form-control" type="number" placeholder="Nomor Telepon" aria-label="phoneNumber" name="phoneNumber" value="{{$customer->phone}}" required autofocus>
+                        <label for="phone" class="form-label">Nomor Telepon</label>
+                        <input class="form-control" type="number" placeholder="Nomor Telepon" aria-label="phone" name="phone" value="{{$customer->phone}}" required autofocus>
                     </div>
                     <div class="mb-3">
-                        <label for="idCard" class="form-label">Nomor KTP</label>
-                        <input class="form-control" type="number" placeholder="Nomor KTP" aria-label="idCard" name="idCard" value="{{$customer->id_card}}" required autofocus>
+                        <label for="id_card" class="form-label">Nomor KTP</label>
+                        <input class="form-control" type="number" placeholder="Nomor KTP" aria-label="id_card" name="id_card" value="{{$customer->id_card}}" required autofocus>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Simpan Data Customer</button>

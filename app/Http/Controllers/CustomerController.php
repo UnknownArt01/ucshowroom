@@ -79,6 +79,15 @@ class CustomerController extends Controller
      */
     public function update(UpdatecustomerRequest $request, $id)
     {
+                //digunakan untuk validator diamana melakukan ppengechekan apakah data yang dimasukkan benar
+                $validator = Validator::make($request->all(),[
+                    'name' => 'required|string',
+                    'address' => 'required|string',
+                    'phone' => 'required|integer',
+                    'id_card' => 'required|integer',
+                ]);
+                if($validator->fails())return redirect()->back()->withInput()->withErrors($validator);
+
         //untuk update data berdasarkan id
         customer::findOrFail($id)->update([
             'name' => $request -> name,

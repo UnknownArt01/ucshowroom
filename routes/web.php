@@ -37,7 +37,7 @@ Route::post('/customer/customer_update/{id}', [App\Http\Controllers\CustomerCont
 Route::get('/customer/customer_delete/{id}', [App\Http\Controllers\CustomerController::class, 'destroy'])->name('customer.customer_delete');
 
 //routing pada order
-Route::get('/order/order_index/{id}', [OrderController::class, 'index'])->name('order.order_store');
+Route::get('/order/order_index/{id}', [OrderController::class, 'index'])->name('order.order_index');
 Route::get('/order/{id}/order_create', [OrderController::class, 'create'])->name('order.order_create');
 Route::post('/order/{id}/order_store', [OrderController::class, 'store'])->name('order.order_store');
 Route::get('/order/delete/{orderId}', [App\Http\Controllers\OrderController::class, 'destroy'])->name('order.order_delete');

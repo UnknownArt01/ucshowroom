@@ -34,7 +34,7 @@
                     <td>{{ $vehicle->vehicle_passenger_ammount }}</td>
                     <td>{{ $vehicle->vehicle_fuel_type }}</td>
                     <td>
-                        <img src="{{ $vehicle->vehicle_image }}" alt="{{ $vehicle->title }}" class="card-img-top">
+                        <img src="{{ url('/storage/' . $vehicle->vehicle_image) }}" alt="{{ $vehicle->title }}" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title">{{ $vehicle->title }}</h5>
                         </div>
