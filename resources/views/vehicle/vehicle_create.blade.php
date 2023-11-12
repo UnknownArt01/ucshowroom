@@ -73,7 +73,7 @@
     {{-- untuk upload foto terbaru --}}
     <div class="form-group">
         <label for="vehicle_image">Vehicle Image:</label>
-        <input type="file" class="form-control-file" id="vehicle_image" name="vehicle_image" accept="image/*" required>
+        <input type="file" class="form-control-file" id="vehicle_image" name="vehicle_image" accept="image/png, image/jpeg" required>
         <small class="form-text text-muted">Upload an image for the vehicle.</small>
     </div>
 

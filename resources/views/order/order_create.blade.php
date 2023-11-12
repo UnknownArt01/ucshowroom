@@ -23,7 +23,7 @@
             </div>
         </div>
         <br>
-        <button type="submit" class="btn btn-primary">Buat Data Customer</button>
+        <button type="submit" class="btn btn-primary" {{ count($vehicle) > 0  ? '' : 'disabled' }}>Buat Data Customer</button>
         </form>
     </main>
 </div>

@@ -39,13 +39,8 @@ class VehicleController extends Controller
         ]);
 
         // Handle file upload if an image is provided
-        if ($request->hasFile('vehicle_image')) {
-            $image = $request->file('vehicle_image');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
-        } else {
-            $imageName = null;
-        }
+
+            $image = $request->file('vehicle_image')->store('Image', 'public');
 
         // Create a new vehicle record
         $data = vehicle::create([
@@ -61,7 +56,7 @@ class VehicleController extends Controller
             'vehicle_cargo_space' => $request->vehicle_cargo_space,
             'vehicle_baggage_space' => $request->vehicle_baggage_space,
             'vehicle_fuel_capacity' => $request->vehicle_fuel_capacity,
-            'vehicle_image' => $request->imageName,
+            'vehicle_image' => $image,
         ]);
 
         return redirect()->route('vehicle.vehicle_index')->with('success', 'Vehicle created successfully.');
@@ -92,20 +87,18 @@ class VehicleController extends Controller
     public function update(UpdatevehicleRequest $request, $id)
     {
         //melakukan pengecheck apakah terdapat gambarnya atau tidak
-        $vehicle_image_path = null;
+        $vehicle_image_newPath = null;
         if($request->vehicle_image != null){
             $this->validate($request, [
                 'vehicle_image' => 'required|image|mimes:jpg,png,jpeg,jfif,pjp,pjpeg',
             ]);
-            $vehicle_image_path = $request->file('vehicle_image')->store('Image', 'public');
+            $vehicle_image_newPath = $request->file('vehicle_image')->store('Image', 'public');
         }
-
-        $vehicleType = $request->selected_value;
 
 
         //tempat memeriksa dimana apakah ada gambarnya atau tidak
         //masih terdapat bug dimana ketika melakukan update maka data akan gambar menghilang
-        if ($vehicle_image_path == "") {
+        if ($vehicle_image_newPath == "") {
             vehicle::findOrFail($id)->update([
                 'vehicle_type'=>$request->vehicle_type,
             'vehicle_model' => $request->vehicle_model,
@@ -134,7 +127,7 @@ class VehicleController extends Controller
             'vehicle_cargo_space' => $request->vehicle_cargo_space,
             'vehicle_baggage_space' => $request->vehicle_baggage_space,
             'vehicle_fuel_capacity' => $request->vehicle_fuel_capacity,
-            'vehicle_image' => $request->imageName,
+            'vehicle_image' => $vehicle_image_newPath,
             ]);
         }
 

@@ -28,7 +28,7 @@ return new class extends Migration
             $table->integer('vehicle_cargo_space')->nullable();//untuk truck
             $table->integer('vehicle_baggage_space')->nullable();//untukmotor
             $table->double('vehicle_fuel_capacity')->nullable();//untuk semua
-            $table->string('vehicle_image')->nullable();
+            $table->string('vehicle_image');
             $table->timestamps();
         });
     }

@@ -43,6 +43,7 @@ class OrderController extends Controller
     {
 
         //untuk menyimpan data order berdasarkan customer id dan vehicle id
+
         $data = order::create([
             'customer_id' => $id,
             'vehicle_id' => $request->selected_value
