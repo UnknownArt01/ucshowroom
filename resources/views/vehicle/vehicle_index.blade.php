@@ -40,6 +40,7 @@
                         </div>
                     </div>
                     <td>
+                        {{-- tombol untuk edit dan delete kendaraan --}}
                         <a href="{{ route('vehicle.vehicle_edit', $vehicle->id) }}" class="btn btn-primary">Edit</a>
                         <a href="{{ route('vehicle.vehicle_delete', $vehicle->id) }}" class="btn btn-primary">Delete</a>
                     </td>

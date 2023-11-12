@@ -2,6 +2,7 @@
 @section('content')
     <div class="container">
         <main class="container">
+            {{-- button menuju ke order add --}}
             <a href="{{ route("order.order_create", ['id'=>$customer_id]) }}" class="btn btn-primary">Create</a>
             <h1> Order </h1>
             <table class="table">
@@ -15,6 +16,7 @@
                 </thead>
                 <tbody>
                     @forelse ($order as $orders)
+                    {{-- menampilkan data order berdasarkan customer id --}}
                         @if($orders->customer_id == $customer_id)
                             <tr>
                                 <td>{{ $orders->customer->name }}</td>

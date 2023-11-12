@@ -1,5 +1,7 @@
 @extends('layout.app')
 @section('content')
+
+{{-- form yang digunakan untuk edit kendaraan berdasarkan ID --}}
 <form action="{{ route('vehicle.vehicle_update', $vehicle->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
@@ -67,7 +69,7 @@
         <label for="vehicle_fuel_capacity">Fuel Capacity:</label>
         <input type="text" class="form-control" id="vehicle_fuel_capacity" value="{{$vehicle->vehicle_fuel_capacity}}" name="vehicle_fuel_capacity" required>
     </div>
-
+    {{-- untuk upload foto terbaru --}}
     <div class="form-group">
         <label for="vehicle_image">Vehicle Image:</label>
         <input type="file" class="form-control-file" id="vehicle_image" name="vehicle_image" accept="image/*" required>
